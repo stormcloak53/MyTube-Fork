@@ -25,8 +25,10 @@ jobs:
         run: chmond +x project/gradlew
 
       - name: Build APK
-        run: cd project && ./gradlew assembledebug
+        run: cd project && ./gradlew assembleDebug
 
-    - name Upload APK artifact
-      uses: actions/upload-artifact@v3
-      with:
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: MyTube-APK
+          path: project/app/build/outputs/apk/degub/*.apk
